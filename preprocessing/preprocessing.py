@@ -8,7 +8,12 @@ def preprocess_claim(claim: Any) -> dict:
     - Ensures claim_type is lowercase
     - Validates amount is non-negative
     """
-    claim_dict = claim.dict() if hasattr(claim, 'dict') else dict(claim)
+    if hasattr(claim, 'model_dump'):
+        claim_dict = claim.model_dump()
+    elif hasattr(claim, 'dict'):
+        claim_dict = claim.dict()
+    else:
+        claim_dict = dict(claim)
     claim_dict['claim_id'] = claim_dict['claim_id'].strip()
     claim_dict['claim_type'] = claim_dict['claim_type'].strip().lower()
     claim_dict['claimant_name'] = claim_dict['claimant_name'].strip()
