@@ -1,0 +1,1 @@
+{"claim_id": "12345", "claim_type": "auto", "amount": 15000.0, "claimant_name": "John Doe", "claimant_id": "JD001", "details": "Accident on highway", "rule_flags": ["high_amount"], "is_suspicious": true, "fraud_score": 0.5731461396317039, "ml_flagged": false, "flagged_for_review": true, "flag_reason": ["rule_engine"], "timestamp": "2025-08-01T14:30:35.165062"}
