@@ -1,0 +1,41 @@
+claim_id,claim_type,amount,claimant_name,claimant_id,details,expected_claim_id,expected_claim_type,expected_amount,expected_is_suspicious,expected_flagged_for_review
+12345,AUTO,15000,John Doe,J D001,Accident on highway,12345,auto,15000,True,True
+67890,health,100,Jane Smith,JS002,Routine checkup,67890,health,100,False,False
+11111,auto,5000,Sam Lee,SL003,,11111,auto,5000,True,True
+22222,health,-500,Alex Kim,AK004,Emergency visit,22222,health,0.0,False,False
+33333,auto,2000, ,CN005,Minor accident,33333,auto,2000,False,False
+44444,auto,12000,Chris Paul,CP006,Major accident,44444,auto,12000,True,True
+55555,health,0,Pat Lee,PL007,Annual checkup,55555,health,0,False,False
+66666,auto,8000,Sam O'Neil,SO008,Windshield damage,66666,auto,8000,False,False
+77777,health,25000,Kim Park,KP009,Expensive surgery,77777,health,25000,True,True
+88888,auto,500,Lee Chan,LC010,,88888,auto,500,True,True
+10001,auto,25000,Max Power,MP012,Total loss accident,10001,auto,25000,True,True
+10002,health,50000,Anna Bell,AB013,Complex surgery,10002,health,50000,True,True
+10003,auto,0,Tom Ford,TF014,No damage,10003,auto,0,False,False
+10004,health,1000,Sam Wise,SW015,Physical therapy,10004,health,1000,False,False
+10005,auto,300,Jane Roe,JR016,Flat tire,10005,auto,300,False,False
+10006,health,200,John Doe,JD017,Prescription refill,10006,health,200,False,False
+10007,auto,9000,Chris Lane,CL018,Minor collision,10007,auto,9000,False,False
+10008,health,15000,Pat Kim,PK019,Hospitalization,10008,health,15000,True,True
+10009,auto,11000,Alex Lee,AL020,Airbag deployment,10009,auto,11000,True,True
+10010,health,250,Sam Lee,SL021,Checkup,10010,health,250,False,False
+10011,auto,500, ,AN022,Windshield crack,10011,auto,500,True,True
+10012,health,0,Chris Paul,CP023,Annual checkup,10012,health,0,False,False
+10013,auto,1500,Kim Park,KP024,Paint scratch,10013,auto,1500,False,False
+10014,health,800,Lee Chan,LC025,Lab tests,10014,health,800,False,False
+10015,auto,20000,Pat Lee,PL026,Engine fire,10015,auto,20000,True,True
+10016,health,35000,Sam O'Neil,SO027,Transplant,10016,health,35000,True,True
+10017,auto,100,Alex Kim,AK028,Lost keys,10017,auto,100,False,False
+10018,health,500,Jane Smith,JS029,Consultation,10018,health,500,False,False
+10019,auto,7000,Tom Ford,TF030,Side mirror damage,10019,auto,7000,False,False
+10020,health,1200,Anna Bell,AB031,Physiotherapy,10020,health,1200,False,False
+10021,auto,13000,Max Power,MP032,Major accident,10021,auto,13000,True,True
+10022,health,400,Sam Wise,SW033,Medication,10022,health,400,False,False
+10023,auto,600,Jane Roe,JR034,Minor dent,10023,auto,600,False,False
+10024,health,100,John Doe,JD035,Eye exam,10024,health,100,False,False
+10025,auto,0,Chris Lane,CL036,No damage,10025,auto,0,False,False
+10026,health,900,Pat Kim,PK037,Lab work,10026,health,900,False,False
+10027,auto,16000,Alex Lee,AL038,Severe crash,10027,auto,16000,True,True
+10028,health,22000,Sam Lee,SL039,ICU stay,10028,health,22000,True,True
+10029,auto,400,Lee Chan,LC040,Door scratch,10029,auto,400,False,False
+10030,health,600,Chris Paul,CP041,Flu treatment,10030,health,600,False,False
