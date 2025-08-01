@@ -1,0 +1,19 @@
+Build an AI-powered real-time insurance fraud detection engine with the following requirements:
+
+- Accept insurance claim submissions via a REST API (FastAPI).
+- Preprocess and normalize claim data before analysis.
+- Apply rule-based logic to flag claims (e.g., high amount, missing details).
+- Use a machine learning model to assign a fraud score to each claim.
+- Flag claims for review if either rules or ML model indicate suspicion.
+- Log flagged claims for audit and investigation.
+- Store all claims in a JSONL file for easy retrieval and analysis.
+- Provide robust, parameterized testing using pytest and CSV data, with HTML reporting.
+- Implement monitoring dashboards (CLI and web) to visualize claim volumes, flagged claims, and fraud rates over time.
+- Organize the codebase into clear modules: API, preprocessing, rules, ML, decision, review, storage, monitoring, and testing.
+- Support easy customization for new rules, model updates, and dashboard features.
+
+Deliverables:
+- Complete Python codebase with modular structure.
+- Example test data and test suite.
+- CLI and web dashboards for monitoring.
+- Documentation (README.md) and setup instructions.
