@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fraud Monitoring Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f6f8fa; margin: 0; }
+        .container { max-width: 800px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 32px; }
+        h1 { color: #1a237e; text-align: center; }
+        .summary { margin-bottom: 32px; }
+        .summary span { display: inline-block; margin-right: 24px; font-size: 1.1rem; }
+        canvas { background: #fff; border-radius: 8px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Fraud Monitoring Dashboard</h1>
+    <div class="summary">
+        <span id="total-claims">Total Claims: ...</span>
+        <span id="flagged-claims">Flagged for Review: ...</span>
+        <span id="fraud-rate">Fraud Rate: ...</span>
+    </div>
+    <canvas id="trendChart" width="700" height="350"></canvas>
+    <h2 style="text-align:center;margin-top:40px;">Claim Count by Date</h2>
+    <canvas id="barChart" width="700" height="350"></canvas>
+</div>
+<script>
+    async function loadSummary() {
+        const res = await fetch('/api/summary');
+        const data = await res.json();
+        document.getElementById('total-claims').textContent = `Total Claims: ${data.total_claims}`;
+        document.getElementById('flagged-claims').textContent = `Flagged for Review: ${data.flagged_claims}`;
+        document.getElementById('fraud-rate').textContent = `Fraud Rate: ${data.fraud_rate}%`;
+    }
+    async function loadTrends() {
+        const res = await fetch('/api/trends');
+        const data = await res.json();
+        const labels = Object.keys(data.daily_counts);
+        const totalData = Object.values(data.daily_counts);
+        const flaggedData = labels.map(date => data.daily_flagged[date] || 0);
+        // Line chart
+        const ctx = document.getElementById('trendChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Total Claims',
+                        data: totalData,
+                        borderColor: '#1976d2',
+                        backgroundColor: 'rgba(25, 118, 210, 0.1)',
+                        fill: true
+                    },
+                    {
+                        label: 'Flagged Claims',
+                        data: flaggedData,
+                        borderColor: '#d32f2f',
+                        backgroundColor: 'rgba(211, 47, 47, 0.1)',
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: false,
+                plugins: { legend: { position: 'top' } },
+                scales: { x: { title: { display: true, text: 'Date' } }, y: { title: { display: true, text: 'Count' } } }
+            }
+        });
+        // Bar chart
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Claim Count',
+                    data: totalData,
+                    backgroundColor: '#1976d2',
+                    borderColor: '#1565c0',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: false,
+                plugins: { legend: { display: false } },
+                scales: { x: { title: { display: true, text: 'Date' } }, y: { title: { display: true, text: 'Count' }, beginAtZero: true } }
+            }
+        });
+    }
+    loadSummary();
+    loadTrends();
+</script>
+</body>
+</html>
